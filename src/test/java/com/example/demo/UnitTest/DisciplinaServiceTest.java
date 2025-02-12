@@ -1,4 +1,4 @@
-package com.example.demo.ServiceUnitTest;
+package com.example.demo.UnitTest;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

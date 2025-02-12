@@ -1,4 +1,4 @@
-package com.example.demo.ServiceUnitTest;
+package com.example.demo.UnitTest;
 
 import com.example.demo.dtos.avaliacao.CalculateAlunoGradeResponseDTO;
 import com.example.demo.dtos.avaliacao.CreateAvaliacaoRequestDTO;

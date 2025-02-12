@@ -1,4 +1,4 @@
-package com.example.demo.ServiceUnitTest;
+package com.example.demo.UnitTest;
 
 import com.example.demo.dtos.questao.CreateQuestaoRequestDTO;
 import com.example.demo.repositories.AvaliacaoRepository;
