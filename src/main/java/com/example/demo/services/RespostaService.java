@@ -2,10 +2,7 @@ package com.example.demo.services;
 
 import com.example.demo.dtos.resposta.CreateRespostaRequestDTO;
 import com.example.demo.dtos.resposta.CreateRespostaResponseDTO;
-import com.example.demo.entities.Alternativa;
-import com.example.demo.entities.Aluno;
-import com.example.demo.entities.Questao;
-import com.example.demo.entities.Resposta;
+import com.example.demo.entities.*;
 import com.example.demo.repositories.*;
 import com.example.demo.services.exceptions.AlternativaNotFoundException;
 import com.example.demo.services.exceptions.AlunoUserNotFoundException;
@@ -26,14 +23,19 @@ public class RespostaService {
     private final QuestaoRepository questaoRepository;
 
     @Autowired
+    private final AvaliacaoRepository avaliacaoRepository;
+
+    @Autowired
     private final AlternativaRepository alternativaRepository;
 
     RespostaService(RespostaRepository respostaRepository, AlunoRepository alunoRepository,
-                    QuestaoRepository questaoRepository, AlternativaRepository alternativaRepository) {
+                    QuestaoRepository questaoRepository, AlternativaRepository alternativaRepository,
+                    AvaliacaoRepository avaliacaoRepository) {
         this.respostaRepository = respostaRepository;
         this.alunoRepository = alunoRepository;
         this.questaoRepository = questaoRepository;
         this.alternativaRepository = alternativaRepository;
+        this.avaliacaoRepository = avaliacaoRepository;
 
     }
 
@@ -50,9 +52,13 @@ public class RespostaService {
         Alternativa alternativa = alternativaRepository.findById(createRespostaRequestDTO.alternativaId())
                 .orElseThrow(() -> new AlternativaNotFoundException("Alternativa não encontrada"));
 
+        Avaliacao avaliacao = avaliacaoRepository.findById(createRespostaRequestDTO.avaliacaoId())
+                .orElseThrow(() -> new AlternativaNotFoundException("Avaliação não encontrada"));
+
         resposta.setAluno(aluno);
         resposta.setQuestao(questao);
         resposta.setAlternativa(alternativa);
+        resposta.setAvaliacao(avaliacao);
 
         resposta = respostaRepository.save(resposta);
         return CreateRespostaResponseDTO.from(resposta);

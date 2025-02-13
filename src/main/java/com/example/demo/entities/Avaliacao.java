@@ -27,6 +27,7 @@ public class Avaliacao {
     @JoinColumn(name = "disciplina_id", nullable = false)
     private Disciplina disciplina;
 
+
     public void setPontuacaoMaxima(int pontuacaoMaxima) {
         if (pontuacaoMaxima < 0 || pontuacaoMaxima > 100) {
             throw new IllegalArgumentException("Pontuação máxima deve ser entre 0 e 100");

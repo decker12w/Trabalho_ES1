@@ -8,7 +8,8 @@ public record CreateRespostaResponseDTO(
         UUID id,
         UUID alunoId,
         UUID questaoId,
-        UUID alternativaId
+        UUID alternativaId,
+        UUID avaliacaoId
 ) {
 
     public static CreateRespostaResponseDTO from(Resposta resposta) {
@@ -16,7 +17,9 @@ public record CreateRespostaResponseDTO(
                 resposta.getId(),
                 resposta.getAluno().getId(),
                 resposta.getQuestao().getId(),
-                resposta.getAlternativa().getId()
+                resposta.getAlternativa().getId(),
+                resposta.getAvaliacao().getId()
+
         );
     }
 }

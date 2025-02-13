@@ -31,6 +31,10 @@ public class Resposta {
     @JoinColumn(name = "alternativa_id", nullable = false)
     private Alternativa alternativa;
 
+    @ManyToOne
+    @JoinColumn(name = "avaliacao_id", nullable = false)
+    private Avaliacao avaliacao;
+
     @Column(name = "created_at", nullable = false, updatable = false)
     @CreationTimestamp
     @Temporal(TemporalType.TIMESTAMP)

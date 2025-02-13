@@ -5,7 +5,8 @@ import java.util.UUID;
 public record CreateRespostaRequestDTO(
         UUID alunoId,
         UUID questaoId,
-        UUID alternativaId
+        UUID alternativaId,
+        UUID avaliacaoId
 
 ) {
 }
